@@ -4,7 +4,8 @@ const Maps: React.FC = () => {
     return (
         <iframe
             width="100%"
-            height="300"
+            height="100%"
+
             frameBorder="0"
             scrolling="no"
             marginHeight={0}
