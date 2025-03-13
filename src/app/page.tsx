@@ -24,33 +24,30 @@ export default function Home() {
     <div className="main">
       <Navbar />
 
-      <div className="relative flex justify-center items-center pt-[15%] pb-[13%] overflow-hidden">
+      <div className="relative flex justify-center items-center pt-[35%] sm:pt-[20%] pb-[13%] overflow-hidden">
         <img
-          className="w-24 absolute top-[-70px] left-[-80px] md:w-95"
+          className="absolute top-10 lg:top-[-20px] left-[-35px] lg:left-[-70px] w-39 sm:w-40 md:w-48 lg:w-84 xl:w-64 max-w-full"
           src="/asset/wheat1.png"
           alt="Wheat Left"
         />
 
         <img
-          className="w-24 absolute top-0 right-[-50px] md:w-85"
+          className="absolute top-8 right-[-30px] w-39 sm:w-40 md:w-48 lg:w-64 xl:w-64 max-w-full"
           src="/asset/blob.png"
           alt="Blob Right"
         />
 
         <img
-          className="w-24 absolute top-75 right-0 md:w-45"
+          className="absolute top-[58%] right-[-10px] w-20 sm:w-40 md:w-48 lg:w-44 xl:w-64 max-w-full"
           src="/asset/wheat2.png"
           alt="Wheat Right"
         />
 
-        <h1 className="montserrat capitalize text-center text-5xl md:text-8xl text-yellow-500 font-light mb-10">
+        <h1 className="montserrat capitalize text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-yellow-500 font-light mb-10">
           Serving <b className="font-bold">Hearts</b> <br />
           Building <b className="font-bold">Lives</b>
         </h1>
       </div>
-
-
-
 
       {/* Vision & Mission */}
       <div className="vm border-2 border-yellow-500 p-20 py-10 mx-9 mb-20 text-center rounded-lg">
@@ -66,13 +63,14 @@ export default function Home() {
       </div>
 
       {/* Warta & Berita Jemaat */}
-      <div className="bg-yellow-500 p-10 px-20">
-        {/* Header */}
-        <div className="oneLine grid grid-cols-3">
-          <div className="col-span-2">
-            <h1 className="montserrat text-7xl font-bold text-white mb-8">Warta & Berita Jemaat</h1>
+      <div className="bg-yellow-500 p-4 sm:p-6 md:p-10">
+        <div className="oneLine flex justify-between items-center grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="col-span-1 sm:col-span-2">
+            <h1 className="montserrat text-4xl sm:text-5xl md:text-5xl font-bold text-white mb-4 sm:mb-8">
+              Warta & Berita Jemaat
+            </h1>
           </div>
-          <div className="arrow flex ml-auto items-start space-x-3">
+          <div className="arrow flex justify-end sm:ml-auto items-center space-x-3 hidden sm:flex">
             <div className="border-2 border-white p-2 rounded-full cursor-pointer">
               <img
                 onClick={() => scroll("left")}
@@ -93,12 +91,14 @@ export default function Home() {
         </div>
 
         {/* Scrollable Card Container */}
-        <div ref={scrollRef} className="flex overflow-x-auto space-x-6 py-4 scrollbar-hide snap-x snap-mandatory">
+        <div ref={scrollRef} className="flex overflow-x-auto space-x-4 sm:space-x-6 py-4 scrollbar-hide snap-x snap-mandatory">
           {Array.from({ length: amount }, (_, index) => (
-            <Card></Card>
+            <Card key={index} />
           ))}
         </div>
       </div>
+
+
 
 
       {/* Kata pengantar pendeta */}
@@ -166,35 +166,47 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer>
-        <div className="grid grid-cols-2 p-15 px-10">
-          <div>
-            <Maps></Maps>
+      <footer className="w-full bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 p-5 md:p-10 px-4 max-w-full">
+          {/* Maps Section */}
+          <div className="mb-6 md:mb-0">
+            <Maps />
           </div>
-          <div className="pl-13">
+
+          {/* Alamat and Social Media Section */}
+          <div className="pl-0 md:pl-10">
             <div className="flex flex-col justify-between h-full">
-              <div>
-                <div className="mb-6">
-                  <h1 className="montserrat capitalize text-2xl mb-3 font-bold text-yellow-500">alamat</h1>
-                  <p className="montserrat text-sm text-yellow-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, dicta? Accusantium cum voluptatem nihil fugit non hic, eligendi excepturi molestias laboriosam. Natus dolorum cupiditate vitae.</p>
-                </div>
-                <div>
-                  <h1 className="montserrat capitalize text-2xl mb-3 font-bold text-yellow-500">kantor pusat</h1>
-                  <p className="montserrat text-sm text-yellow-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, dicta? Accusantium cum voluptatem nihil fugit non hic, eligendi excepturi molestias laboriosam. Natus dolorum cupiditate vitae.</p>
-                </div>
+              {/* Alamat */}
+              <div className="mb-6">
+                <h1 className="montserrat capitalize text-2xl mb-3 font-bold text-yellow-500">Alamat</h1>
+                <p className="montserrat text-sm text-yellow-500">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, dicta? Accusantium cum voluptatem nihil fugit non hic, eligendi excepturi molestias laboriosam. Natus dolorum cupiditate vitae.
+                </p>
               </div>
+
+              {/* Kantor Pusat */}
+              <div className="mb-6">
+                <h1 className="montserrat capitalize text-2xl mb-3 font-bold text-yellow-500">Kantor Pusat</h1>
+                <p className="montserrat text-sm text-yellow-500">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, dicta? Accusantium cum voluptatem nihil fugit non hic, eligendi excepturi molestias laboriosam. Natus dolorum cupiditate vitae.
+                </p>
+              </div>
+
+              {/* Social Media */}
               <div className="social inline-flex space-x-6">
-                <img className="w-10 h-10" src="/asset/yt_footer.png" alt="" />
-                <img className="w-10 h-10" src="/asset/ig_footer.png" alt="" />
-                <img className="w-10 h-10" src="/asset/wa_footer.png" alt="" />
-                <img className="w-10 h-10" src="/asset/more_footer.png" alt="" />
+                <img className="w-10 h-10" src="/asset/yt_footer.png" alt="Youtube" />
+                <img className="w-10 h-10" src="/asset/ig_footer.png" alt="Instagram" />
+                <img className="w-10 h-10" src="/asset/wa_footer.png" alt="Whatsapp" />
+                <img className="w-10 h-10" src="/asset/more_footer.png" alt="More" />
               </div>
             </div>
           </div>
         </div>
 
-        <h1 className="montserrat capitalize text-center text-yellow-500 pb-5">© hak cipta dilindungi undang-undang 2024 GSJA kalibanteng</h1>
+        {/* Copyright */}
+        <h1 className="montserrat capitalize text-center text-yellow-500 py-5">© Hak Cipta Dilindungi Undang-Undang 2024 GSJA Kalibanteng</h1>
       </footer>
+
     </div>
   );
 }
